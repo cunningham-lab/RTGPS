@@ -1,0 +1,13 @@
+numpy
+numba
+pandas
+matplotlib
+scipy
+seaborn
+sklearn
+torch
+torchvision
+tqdm
+gitpython
+pykeops
+fire

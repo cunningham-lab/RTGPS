@@ -1,0 +1,205 @@
+% COLORs
+\usepackage[usenames,dvipsnames]{xcolor}
+\newcommand{\red}[1]{\textcolor{BrickRed}{#1}}
+\newcommand{\orange}[1]{\textcolor{BurntOrange}{#1}}
+\newcommand{\green}[1]{\textcolor{OliveGreen}{#1}}
+\newcommand{\blue}[1]{\textcolor{MidnightBlue}{#1}}
+\newcommand{\gray}[1]{\textcolor{black!60}{#1}}
+
+% MARGIN + SPACING
+%\usepackage[
+%  letterpaper,
+%  left    = 1.4in,
+%  right   = 1.4in,
+%  top     = 1.25in,
+%  bottom  = 1.25in
+%  ]{geometry}
+
+%\author[2]{Author E\thanks{E.E@university.edu}}
+%\usepackage[utf8]{inputenc}
+%\usepackage[parfill]{parskip}
+%\setlength{\parskip}{.5em}
+
+% TEXT
+%\usepackage[final,expansion=alltext]{microtype}
+%\usepackage[english]{babel}
+%\usepackage{afterpage}
+%\usepackage{framed}
+
+% PARAGRAPH HEADER SPACING
+\renewcommand{\paragraph}[1]{\textbf{#1}~}
+
+% REFERENCE LINKS + COLORS
+\usepackage[colorlinks,linktoc=all]{hyperref}
+\usepackage[all]{hypcap}
+\hypersetup{citecolor=MidnightBlue}
+\hypersetup{linkcolor=MidnightBlue}
+\hypersetup{urlcolor=MidnightBlue}
+%\usepackage{url}            % simple URL typesetting
+
+% TABLES
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{multirow}
+
+% FIGURES
+%\usepackage{graphicx}
+%\usepackage[labelfont=bf]{caption}
+%\usepackage[format=hang]{subcaption}
+%
+% LISTS
+\usepackage{enumitem}
+
+%% BIB + AUTHOR
+%\usepackage{natbib}
+%\usepackage{authblk}
+%\usepackage{todonotes}
+%\presetkeys{todonotes}{color=blue!30,size=\small}{}
+%
+%% MATH
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath, amssymb}
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage[nice]{nicefrac}
+%% \usepackage{comment}
+%% \usepackage{siunitx}
+%% \usepackage{dsfont}
+%%\newcommand{\nf}[1]{\noindent{\textcolor{red}{\{{\bf Nick:} \em #1\}}}}
+%
+%% ALGORITHMS
+%\usepackage[algoruled]{algorithm2e}
+%\usepackage[algo2e]{algorithm2e}
+%\usepackage{listings}
+%\usepackage{fancyvrb}
+%\fvset{fontsize=\normalsize}
+
+% % tikz sutff
+\usepackage{tikz}
+\newcommand\circled[1]{%
+  \tikz[baseline=(X.base)]
+    \node (X) [draw, shape=circle, inner sep=0] {\strut #1};}
+% \usetikzlibrary{fit,positioning,calc}
+% \definecolor{light}{RGB}{220, 188, 188}
+% \definecolor{mid}{RGB}{185, 124, 124}
+% \definecolor{dark}{RGB}{143, 39, 39}
+% \definecolor{highlight}{RGB}{0, 255, 0}
+% \definecolor{gray10}{gray}{0.1}
+% \definecolor{gray20}{gray}{0.2}
+% \definecolor{gray30}{gray}{0.3}
+% \definecolor{gray40}{gray}{0.4}
+% \definecolor{gray60}{gray}{0.6}
+% \definecolor{gray70}{gray}{0.7}
+% \definecolor{gray80}{gray}{0.8}
+% \definecolor{gray90}{gray}{0.9}
+% \definecolor{gray95}{gray}{0.95}
+% \definecolor{comment}{gray}{0.50}
+
+% %\trivfloat{algorithm}
+% %\renewcommand\algorithmname{ALGORITHM}
+% \usepackage[utf8]{inputenc}
+% \usepackage[english]{babel}
+% \usepackage{amsthm}
+% \newtheorem{lemma}{Lemma}
+
+
+% \newcommand\dd{\mathrm{d}}
+
+% \newcommand{\mcpoint}[2]{
+%   \fill[color=dark] (#1, #2) circle (7pt);
+%   \fill[color=light] (#1, #2) circle (5pt);
+% }
+
+% \newcommand{\LS}{\ensuremath { H^{-1} \! \left( E \right) } }
+% \newcommand{\sLS}{\ensuremath { H^{-1} \left( E \right) } }
+% \newcommand{\MLS}{\ensuremath { \widetilde{H}^{-1} \! \left( E \right) } }
+% \newcommand{\sMLS}{\ensuremath { \widetilde{H}^{-1} \left( E \right) } }
+
+% %\newcommand\T{\mathcal{T}}
+% \newcommand\Keff{\widecheck{K}}
+%\newcommand\Veff{\widecheck{V}}
+
+% circled letter...
+\newcommand{\tcirc}[1]{{\large \textcircled{\small #1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%% math alphbbet %%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\vect}{vec}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\blkdiag}{BlkDiag}
+\newcommand{\given}{\,|\,}
+\newcommand{\prox}{\textrm{prox}}
+
+% bold lower
+\newcommand{\ba}{\boldsymbol{a}}
+\newcommand{\bb}{\boldsymbol{b}}
+\newcommand{\bc}{\boldsymbol{c}}
+\newcommand{\bd}{\boldsymbol{d}}
+\newcommand{\be}{\boldsymbol{e}}
+\newcommand{\bff}{\boldsymbol{f}}
+\newcommand{\bg}{\boldsymbol{g}}
+\newcommand{\bh}{\boldsymbol{h}}
+\newcommand{\bi}{\boldsymbol{i}}
+\newcommand{\bj}{\boldsymbol{j}}
+\newcommand{\bk}{\boldsymbol{k}}
+\newcommand{\bl}{\boldsymbol{l}}
+\newcommand{\bm}{\boldsymbol{m}}
+\newcommand{\bn}{\boldsymbol{n}}
+\newcommand{\bo}{\boldsymbol{o}}
+\newcommand{\bp}{\boldsymbol{p}}
+\newcommand{\bq}{\boldsymbol{q}}
+\newcommand{\br}{\boldsymbol{r}}
+\newcommand{\bs}{\boldsymbol{s}}
+\newcommand{\bt}{\boldsymbol{t}}
+\newcommand{\bu}{\boldsymbol{u}}
+\newcommand{\bv}{\boldsymbol{v}}
+\newcommand{\bw}{\boldsymbol{w}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\by}{\boldsymbol{y}}
+\newcommand{\bz}{\boldsymbol{z}}
+
+% bold upper
+\newcommand{\bA}{\boldsymbol{A}}
+\newcommand{\bB}{\boldsymbol{B}}
+\newcommand{\bC}{\boldsymbol{C}}
+\newcommand{\bD}{\boldsymbol{D}}
+\newcommand{\bE}{\boldsymbol{E}}
+\newcommand{\bF}{\boldsymbol{F}}
+\newcommand{\bG}{\boldsymbol{G}}
+\newcommand{\bH}{\boldsymbol{H}}
+\newcommand{\bI}{\boldsymbol{I}}
+\newcommand{\bJ}{\boldsymbol{J}}
+\newcommand{\bK}{\boldsymbol{K}}
+\newcommand{\bL}{\boldsymbol{L}}
+\newcommand{\bM}{\boldsymbol{M}}
+\newcommand{\bN}{\boldsymbol{N}}
+\newcommand{\bO}{\boldsymbol{O}}
+\newcommand{\bP}{\boldsymbol{P}}
+\newcommand{\bQ}{\boldsymbol{Q}}
+\newcommand{\bR}{\boldsymbol{R}}
+\newcommand{\bS}{\boldsymbol{S}}
+\newcommand{\bT}{\boldsymbol{T}}
+\newcommand{\bU}{\boldsymbol{U}}
+\newcommand{\bV}{\boldsymbol{V}}
+\newcommand{\bW}{\boldsymbol{W}}
+\newcommand{\bX}{\boldsymbol{X}}
+\newcommand{\bY}{\boldsymbol{Y}}
+\newcommand{\bZ}{\boldsymbol{Z}}
+
+% greek letters
+\newcommand{\balpha}{{\boldsymbol{\alpha}}}
+\newcommand{\blambda}{{\boldsymbol{\lambda}}}
+\newcommand{\btheta}{{\boldsymbol{\theta}}}
+\newcommand{\bmu}{{\boldsymbol{\mu}}}
+\newcommand{\bnu}{{\boldsymbol{\nu}}}
+\newcommand{\bomega}{{\boldsymbol{\omega}}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\bsigma}{{\boldsymbol{\sigma}}}
+\newcommand{\bkappa}{{\boldsymbol{\kappa}}}
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\bLambda}{{\boldsymbol{\Lambda}}}
+\newcommand{\bphi}{\boldsymbol{\phi}}
+\newcommand{\brho}{\boldsymbol{\rho}}
+\newcommand{\etab}{\boldsymbol{\eta}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}

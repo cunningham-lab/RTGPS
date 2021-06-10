@@ -1,0 +1,35 @@
+Bootstrap: docker
+From: ubuntu:latest
+
+%post
+
+  apt update -y && apt upgrade -y
+  apt install vim -y
+  apt install curl -y
+  apt install python3 -y
+  apt install python3-pip -y
+  apt install glibc-source
+  apt install cmake -y
+  apt install build-essential -y
+
+  python3 -m pip install --upgrade pip
+  python3 -m pip install opencv-python
+  echo $(python3 --version)
+  echo $(which pip)
+
+  python3 -m pip install numpy
+  python3 -m pip install numba
+  python3 -m pip install pandas
+  python3 -m pip install matplotlib
+  python3 -m pip install scipy
+  python3 -m pip install scikit-learn
+  python3 -m pip install torch
+  python3 -m pip install torchvision
+  python3 -m pip install tqdm
+  python3 -m pip install gitpython
+  python3 -m pip install pykeops
+  python3 -m pip install fire
+  python3 -c "import pykeops; pykeops.clean_pykeops(); pykeops.test_torch_bindings()"
+
+%help
+    ...
