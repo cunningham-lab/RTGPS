@@ -3,29 +3,27 @@ import math
 import time
 import numpy as np
 import torch
-from matplotlib import pyplot as plt
 import gpytorch as gpt
 from experiments.experiment_fns import GPRegressionModel
 from experiments.experiment_fns import set_hypers
 from experiments.experiment_fns import recover_rff
 from experiments.experiment_fns import recover_cg
 from experiments.experiment_fns import sample_from_prior
-from experiments.experiment_fns import plot_results
 
-# train_n, test_n, lengthscale_num, cg_max, use_all_rff = 10, 5, 1, 5, False
-train_n, test_n, lengthscale_num, cg_max, use_all_rff = 200, 151, 11, 54, True
+train_n, test_n, lengthscale_num, cg_max, use_all_rff = 10, 5, 1, 5, False
+# train_n, test_n, lengthscale_num, cg_max, use_all_rff = 200, 151, 11, 54, True
 save_results = True
-generate_plots = False
 use_cuda = torch.cuda.is_available()
-torch.manual_seed(0)
-output_file = './results/ls_recovery_0.pkl'
+seed = 0
+torch.manual_seed(seed)
+np.random.seed(seed)
+output_file = './results/ls_recovery.pkl'
 
 rff_samples = np.concatenate((np.array([50]),
                               np.arange(100, 1000, 100),
                               np.arange(1000, 3000, 250)))
 rff_samples = rff_samples if use_all_rff else np.array([10])
 cg_iters = np.arange(4, cg_max, step=4)
-# lower, upper = 0.1, 2.0
 lower, upper = 0.1, 1.0
 true_lengthscales = torch.tensor(np.linspace(lower, upper, lengthscale_num))
 
@@ -66,11 +64,6 @@ for i in range(len(true_lengthscales)):
     train_y = sample_from_prior(true_model, true_likelihood, train_x)
     train_ds = (train_x, train_y)
 
-    if generate_plots:
-        plt.title(f'Prior Sample for {i:3d}')
-        plt.plot(train_y, '*')
-        plt.savefig(f'./results/prior_{i:d}' + '.png')
-
     for j, rff_sample in enumerate(rff_samples):
         tic = time.time()
         print(f'\nTrue lengthscale = {true_ls:2.2f}')
@@ -78,11 +71,6 @@ for i in range(len(true_lengthscales)):
         model, ls, *_ = recover_rff(rff_sample, hyperparams, train_ds)
         recovered_ls_rff[i, j] = float(ls)
         training_time_rff[i, j] = time.time() - tic
-
-        if generate_plots:
-            plot_results(model, true_likelihood, test_x)
-            plt.title(f'RFF: (recovered_ls, true_ls) = ({ls:4.4f}, {true_ls:4.4f})')
-            plt.savefig(f'./results/rff_{i:d}_{j:d}' + '.png')
 
     for c, cg_iter in enumerate(cg_iters):
         tic = time.time()
@@ -92,10 +80,6 @@ for i in range(len(true_lengthscales)):
         recovered_ls_cg[i, c] = float(cg_ls)
         training_time_cg[i, c] = time.time() - tic
 
-        if generate_plots:
-            plot_results(cg_model, true_likelihood, test_x)
-            plt.title(f'CG: (recovered_ls, true_ls) = ({cg_ls:4.4f}, {true_ls:4.4f})')
-            plt.savefig(f'./results/cg_{i:d}_{c:d}' + '.png')
 t1 = time.time()
 print(f'Experiment took: {t1 - t0:4.2f} sec')
 

@@ -7,8 +7,7 @@ from experiments.utils import load_results
 
 sns.set_theme(style='darkgrid')
 save_output = True
-# input_file = './results/saved/ls_recovery.pkl'
-input_file = './results/saved/ls_recovery_2.pkl'
+input_file = './results/ls_recovery.pkl'
 ccc = get_colors_dict()
 
 results = load_results(input_file)
@@ -47,7 +46,4 @@ ax[1].set_xticks([50, 300, 500, 700, 1000, 1250, 1750, 2250, 2750])
 fig.tight_layout()
 if save_output:
     plt.savefig('./results/ls_recovery.png')
-    plt.savefig('./paper/figures/ls_recovery.png')
-    plt.savefig('./results/ls_recovery.pdf')
-    plt.savefig('./paper/figures/ls_recovery.pdf')
 plt.show()
