@@ -107,7 +107,7 @@ Note that the `--total_n` argument allows using a subset of the dataset for fast
 All the content for running RFF & SS-RFF is in the `./experiments` folder. To run a specific instance of the models, run
 
 ```
-python experiments/loss_ss_rff.py
+python experiments/run_rff.py
 ```
 and you will have to change the configurations then you could modify the following
 variables inside the script
@@ -129,9 +129,9 @@ variables inside the script
 | `truncation_name` | `<str> ('onej')`  | Name of the truncation distribution to use. |
 | `trunc_settings` | `<dict> ({'min_val': 500, ...})`  | Specifications of the truncation dist. This includes the minimum value of features to use, the max value (most likely determined by the GPU memory - higher is better), the decay coefficient 1/J^{coeff} and the step size|
 
-For running with the specific choices of the experiments you could run
+For running the experiments in the paper try
 ```
-python experiments/grid_rff_loss.py
+bash rff.sh
 ```
 
 ## Files
